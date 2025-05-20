@@ -49,7 +49,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
     <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center group relative -translate-x-[2px]" onClick={() => onNavItemClick('home')}>
+          <Link href="/" className="flex items-center group relative -translate-x-[40px]" onClick={() => onNavItemClick('home')}>
             <Image 
               src={logoUrl} 
               alt="Quantastic Logo" 
