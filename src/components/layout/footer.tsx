@@ -15,14 +15,14 @@ const Footer: FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Column 1: Logo & Description */}
-          <div>
-            <Link href="/" className="flex items-center mb-4">
+          <div className="flex flex-col items-center text-center">
+            <Link href="/" className="flex items-center justify-center mb-4">
               <Image src={logoUrl} alt="Quantastic Logo" width={180} height={45} />
             </Link>
             <p className="text-sm mb-4">
               Your fantastic app for talent navigation. We specialize in connecting talent with opportunities.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center">
               <Link href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-primary transition-colors">
                 <Linkedin size={20} />
               </Link>
@@ -36,7 +36,7 @@ const Footer: FC = () => {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <div className="text-center">
             <h5 className="text-lg font-semibold text-white mb-4">Quick Links</h5>
             <ul className="space-y-2">
               <li><Link href="#home" className="text-sm hover:text-primary transition-colors">Home</Link></li>
@@ -48,7 +48,7 @@ const Footer: FC = () => {
           </div>
 
           {/* Column 3: Our Services */}
-          <div>
+          <div className="text-center">
             <h5 className="text-lg font-semibold text-white mb-4">Our Services</h5>
             <ul className="space-y-2">
               <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Specialized Tech Recruitment</Link></li>
@@ -57,7 +57,6 @@ const Footer: FC = () => {
               <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Consulting Services</Link></li>
             </ul>
           </div>
-
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center">
