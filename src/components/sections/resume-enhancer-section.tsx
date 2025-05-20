@@ -10,9 +10,10 @@ import { enhanceResume, type EnhanceResumeInput, type EnhanceResumeOutput } from
 import SectionWrapper from '@/components/common/section-wrapper';
 import SectionTitle from '@/components/common/section-title';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Wand2, FileText, Sparkles } from 'lucide-react';
+import { Loader2, Wand2, FileText, Sparkles, UploadCloud } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -22,7 +23,11 @@ interface ResumeEnhancerSectionProps {
 }
 
 const formSchema = z.object({
-  resumeText: z.string().min(100, "Resume text must be at least 100 characters."),
+  resumeFileDataUri: z.string()
+    .refine(value => value.startsWith('data:application/pdf;base64,'), {
+      message: "Please upload a valid PDF file.",
+    })
+    .describe("The PDF resume file as a data URI."),
   jobDescription: z.string().optional(),
 });
 
@@ -31,17 +36,55 @@ type FormData = z.infer<typeof formSchema>;
 const ResumeEnhancerSection: FC<ResumeEnhancerSectionProps> = ({ id, ref }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<EnhanceResumeOutput | null>(null);
+  const [fileName, setFileName] = useState<string | null>(null);
   const { toast } = useToast();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors }, setValue, resetField } = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      resumeFileDataUri: '',
+      jobDescription: '',
+    }
   });
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      if (file.type === "application/pdf") {
+        const reader = new FileReader();
+        reader.onload = (loadEvent) => {
+          const dataUri = loadEvent.target?.result as string;
+          setValue('resumeFileDataUri', dataUri, { shouldValidate: true });
+          setFileName(file.name);
+        };
+        reader.onerror = () => {
+          toast({ title: "File Error", description: "Could not read the selected file.", variant: "destructive" });
+          resetField('resumeFileDataUri');
+          setFileName(null);
+        }
+        reader.readAsDataURL(file);
+      } else {
+        toast({ title: "Invalid File Type", description: "Please select a PDF file.", variant: "destructive" });
+        resetField('resumeFileDataUri');
+        setFileName(null);
+        event.target.value = ''; // Clear the file input
+      }
+    } else {
+        resetField('resumeFileDataUri');
+        setFileName(null);
+    }
+  };
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setIsLoading(true);
     setResult(null);
     try {
-      const aiResult = await enhanceResume(data as EnhanceResumeInput);
+      // Ensure data passed to enhanceResume matches EnhanceResumeInput type
+      const inputForAI: EnhanceResumeInput = {
+        resumeFileDataUri: data.resumeFileDataUri,
+        jobDescription: data.jobDescription,
+      };
+      const aiResult = await enhanceResume(inputForAI);
       setResult(aiResult);
       toast({
         title: "Resume Enhanced!",
@@ -71,21 +114,26 @@ const ResumeEnhancerSection: FC<ResumeEnhancerSectionProps> = ({ id, ref }) => {
               Boost Your Resume
             </CardTitle>
             <CardDescription>
-              Paste your resume and an optional job description to get AI-driven suggestions for improvement.
+              Upload your resume (PDF) and an optional job description to get AI-driven suggestions for improvement.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="resumeText" className="block text-sm font-medium text-foreground mb-1">Your Resume Text</label>
-                <Textarea
-                  id="resumeText"
-                  {...register("resumeText")}
-                  placeholder="Paste your full resume text here..."
-                  rows={10}
-                  className={`w-full ${errors.resumeText ? 'border-destructive focus-visible:ring-destructive' : 'border-input'}`}
-                />
-                {errors.resumeText && <p className="text-sm text-destructive mt-1">{errors.resumeText.message}</p>}
+                <label htmlFor="resumeFile" className="block text-sm font-medium text-foreground mb-1">Your Resume (PDF)</label>
+                <div className="flex items-center space-x-2">
+                  <Input
+                    id="resumeFile"
+                    type="file"
+                    accept="application/pdf"
+                    onChange={handleFileChange}
+                    className={`w-full ${errors.resumeFileDataUri ? 'border-destructive focus-visible:ring-destructive' : 'border-input'}`}
+                  />
+                   {/* Hidden input to allow react-hook-form to register and validate the data URI */}
+                  <input type="hidden" {...register("resumeFileDataUri")} />
+                </div>
+                {fileName && <p className="text-sm text-muted-foreground mt-1">Selected: {fileName}</p>}
+                {errors.resumeFileDataUri && <p className="text-sm text-destructive mt-1">{errors.resumeFileDataUri.message}</p>}
               </div>
               <div>
                 <label htmlFor="jobDescription" className="block text-sm font-medium text-foreground mb-1">Target Job Description (Optional)</label>
@@ -97,7 +145,7 @@ const ResumeEnhancerSection: FC<ResumeEnhancerSectionProps> = ({ id, ref }) => {
                   className="w-full border-input"
                 />
               </div>
-              <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-primary/90 text-lg py-3">
+              <Button type="submit" disabled={isLoading || !!errors.resumeFileDataUri} className="w-full bg-primary hover:bg-primary/90 text-lg py-3">
                 {isLoading ? (
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                 ) : (
@@ -128,7 +176,7 @@ const ResumeEnhancerSection: FC<ResumeEnhancerSectionProps> = ({ id, ref }) => {
                 <CardHeader>
                   <CardTitle className="flex items-center text-2xl text-green-600">
                     <FileText className="mr-2 h-7 w-7" />
-                    Enhanced Resume
+                    Enhanced Resume / Summary
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -159,8 +207,11 @@ const ResumeEnhancerSection: FC<ResumeEnhancerSectionProps> = ({ id, ref }) => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Once you submit your resume, your AI-powered suggestions and an improved version will appear here. Get ready to make your application stand out!
+                  Upload your PDF resume, and once you submit, your AI-powered suggestions and an improved version/summary will appear here. Get ready to make your application stand out!
                 </p>
+                <div className="mt-4 flex justify-center">
+                    <UploadCloud className="h-16 w-16 text-muted-foreground/50" />
+                </div>
               </CardContent>
             </Card>
           )}
