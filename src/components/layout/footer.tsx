@@ -2,7 +2,6 @@
 import type { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Linkedin, Facebook, Twitter } from 'lucide-react';
 
@@ -15,7 +14,7 @@ const Footer: FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Column 1: Logo & Description */}
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center translate-x-[80px]">
             <Link href="/" className="flex items-center justify-center mb-4">
               <Image src={logoUrl} alt="Quantastic Logo" width={180} height={45} />
             </Link>
