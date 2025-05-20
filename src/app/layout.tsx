@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'TechTalent Navigator',
-  description: 'Connecting top tech talent with innovative companies.',
+  title: 'Quantastic',
+  description: 'Your fantastic app for talent navigation.',
 };
 
 export default function RootLayout({

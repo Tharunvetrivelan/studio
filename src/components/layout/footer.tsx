@@ -1,6 +1,7 @@
 // src/components/layout/footer.tsx
 import type { FC } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Linkedin, Facebook, Twitter, Send } from 'lucide-react';
@@ -15,11 +16,10 @@ const Footer: FC = () => {
           {/* Column 1: Logo & Description */}
           <div>
             <Link href="/" className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-primary">TechTalent</span>
-              <span className="text-2xl font-medium text-white">Navigator</span>
+              <Image src="/quantastic-logo.png" alt="Quantastic Logo" width={180} height={45} />
             </Link>
             <p className="text-sm mb-4">
-              Connecting top tech talent with innovative companies. We specialize in IT recruitment, ensuring the perfect match for your team.
+              Your fantastic app for talent navigation. We specialize in connecting talent with opportunities.
             </p>
             <div className="flex space-x-4">
               <Link href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-primary transition-colors">
@@ -76,7 +76,7 @@ const Footer: FC = () => {
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center">
-          <p className="text-sm">&copy; {currentYear} TechTalent Navigator. All rights reserved.</p>
+          <p className="text-sm">&copy; {currentYear} Quantastic. All rights reserved.</p>
         </div>
       </div>
     </footer>

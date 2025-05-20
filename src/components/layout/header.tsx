@@ -4,6 +4,7 @@
 import type { FC } from 'react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Linkedin, Facebook, Twitter, Menu, X } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -48,8 +49,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center" onClick={() => onNavItemClick('home')}>
-            <span className="text-2xl font-bold text-primary">TechTalent</span>
-            <span className="text-2xl font-medium text-foreground">Navigator</span>
+            <Image src="/quantastic-logo.png" alt="Quantastic Logo" width={160} height={40} />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-2">
@@ -92,8 +92,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
               <SheetContent side="right" className="w-[280px] bg-background p-6">
                 <div className="flex flex-col space-y-6">
                   <Link href="/" className="flex items-center self-start mb-4" onClick={() => handleMobileLinkClick('home')}>
-                     <span className="text-2xl font-bold text-primary">TechTalent</span>
-                     <span className="text-2xl font-medium text-foreground">Navigator</span>
+                     <Image src="/quantastic-logo.png" alt="Quantastic Logo" width={160} height={40} />
                   </Link>
                   {navItems.map((item) => (
                     <Button
