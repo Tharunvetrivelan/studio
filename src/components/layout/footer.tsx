@@ -8,6 +8,7 @@ import { Linkedin, Facebook, Twitter, Send } from 'lucide-react';
 
 const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
+  const logoUrl = "https://cdn.discordapp.com/attachments/1168222654570975284/1374410831105888376/cover.png?ex=682df355&is=682ca1d5&hm=27fb8b0e9d1b1a90e05259fba39c094f673034b840a1ae26bfb2bc2ae377d0c0&";
 
   return (
     <footer className="bg-gray-900 text-gray-300 py-16">
@@ -16,7 +17,7 @@ const Footer: FC = () => {
           {/* Column 1: Logo & Description */}
           <div>
             <Link href="/" className="flex items-center mb-4">
-              <Image src="/quantastic-logo.png" alt="Quantastic Logo" width={180} height={45} />
+              <Image src={logoUrl} alt="Quantastic Logo" width={180} height={45} />
             </Link>
             <p className="text-sm mb-4">
               Your fantastic app for talent navigation. We specialize in connecting talent with opportunities.

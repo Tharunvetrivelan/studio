@@ -30,6 +30,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const logoUrl = "https://cdn.discordapp.com/attachments/1168222654570975284/1374410831105888376/cover.png?ex=682df355&is=682ca1d5&hm=27fb8b0e9d1b1a90e05259fba39c094f673034b840a1ae26bfb2bc2ae377d0c0&";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +50,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center" onClick={() => onNavItemClick('home')}>
-            <Image src="/quantastic-logo.png" alt="Quantastic Logo" width={160} height={40} />
+            <Image src={logoUrl} alt="Quantastic Logo" width={160} height={40} priority />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-2">
@@ -92,7 +93,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
               <SheetContent side="right" className="w-[280px] bg-background p-6">
                 <div className="flex flex-col space-y-6">
                   <Link href="/" className="flex items-center self-start mb-4" onClick={() => handleMobileLinkClick('home')}>
-                     <Image src="/quantastic-logo.png" alt="Quantastic Logo" width={160} height={40} />
+                     <Image src={logoUrl} alt="Quantastic Logo" width={160} height={40} priority />
                   </Link>
                   {navItems.map((item) => (
                     <Button
