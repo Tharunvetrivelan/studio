@@ -49,8 +49,15 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
     <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center" onClick={() => onNavItemClick('home')}>
-            <Image src={logoUrl} alt="Quantastic Logo" width={160} height={40} priority />
+          <Link href="/" className="flex items-center group relative -translate-x-[2px]" onClick={() => onNavItemClick('home')}>
+            <Image 
+              src={logoUrl} 
+              alt="Quantastic Logo" 
+              width={160} 
+              height={40} 
+              priority 
+              className="rounded-lg border-2 border-primary/20 p-0.5 group-hover:border-primary/60 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-accent/40 transition-all duration-300 ease-in-out"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-2">
@@ -92,8 +99,15 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] bg-background p-6">
                 <div className="flex flex-col space-y-6">
-                  <Link href="/" className="flex items-center self-start mb-4" onClick={() => handleMobileLinkClick('home')}>
-                     <Image src={logoUrl} alt="Quantastic Logo" width={160} height={40} priority />
+                  <Link href="/" className="flex items-center self-start mb-4 group" onClick={() => handleMobileLinkClick('home')}>
+                     <Image 
+                        src={logoUrl} 
+                        alt="Quantastic Logo" 
+                        width={160} 
+                        height={40} 
+                        priority 
+                        className="rounded-lg border-2 border-primary/20 p-0.5 group-hover:border-primary/60 group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-accent/40 transition-all duration-300 ease-in-out"
+                      />
                   </Link>
                   {navItems.map((item) => (
                     <Button
