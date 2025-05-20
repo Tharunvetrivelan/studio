@@ -77,15 +77,15 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-3">
-            <Link href="#" aria-label="LinkedIn" className="text-foreground/70 hover:text-primary transition-colors">
-              <Linkedin size={20} />
+          <div className="hidden md:flex items-center space-x-3 translate-x-10">
+            <Link href="#" aria-label="LinkedIn" className="text-foreground/70 group">
+              <Linkedin size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
             </Link>
-            <Link href="#" aria-label="Facebook" className="text-foreground/70 hover:text-primary transition-colors">
-              <Facebook size={20} />
+            <Link href="#" aria-label="Facebook" className="text-foreground/70 group">
+              <Facebook size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
             </Link>
-            <Link href="#" aria-label="Twitter" className="text-foreground/70 hover:text-primary transition-colors">
-              <Twitter size={20} />
+            <Link href="#" aria-label="Twitter" className="text-foreground/70 group">
+              <Twitter size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
             </Link>
           </div>
 
@@ -124,14 +124,14 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
                     </Button>
                   ))}
                   <div className="flex items-center space-x-4 pt-6 border-t">
-                    <Link href="#" aria-label="LinkedIn" className="text-foreground/70 hover:text-primary transition-colors">
-                      <Linkedin size={24} />
+                    <Link href="#" aria-label="LinkedIn" className="text-foreground/70 group">
+                      <Linkedin size={24} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
                     </Link>
-                    <Link href="#" aria-label="Facebook" className="text-foreground/70 hover:text-primary transition-colors">
-                      <Facebook size={24} />
+                    <Link href="#" aria-label="Facebook" className="text-foreground/70 group">
+                      <Facebook size={24} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
                     </Link>
-                    <Link href="#" aria-label="Twitter" className="text-foreground/70 hover:text-primary transition-colors">
-                      <Twitter size={24} />
+                    <Link href="#" aria-label="Twitter" className="text-foreground/70 group">
+                      <Twitter size={24} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
                     </Link>
                   </div>
                 </div>
