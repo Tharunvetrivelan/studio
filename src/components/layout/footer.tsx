@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Linkedin, Facebook, Twitter, Send } from 'lucide-react';
+import { Linkedin, Facebook, Twitter } from 'lucide-react';
 
 const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
@@ -58,22 +58,6 @@ const Footer: FC = () => {
             </ul>
           </div>
 
-          {/* Column 4: Newsletter */}
-          <div>
-            <h5 className="text-lg font-semibold text-white mb-4">Newsletter</h5>
-            <p className="text-sm mb-3">Stay updated with our latest news and insights.</p>
-            <form className="flex space-x-2">
-              <Input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="bg-gray-800 border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:ring-primary" 
-              />
-              <Button type="submit" variant="default" size="icon" className="bg-primary hover:bg-primary/90">
-                <Send size={18} />
-                <span className="sr-only">Subscribe</span>
-              </Button>
-            </form>
-          </div>
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center">
