@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Linkedin, Facebook, Twitter, Menu, X } from 'lucide-react';
+import { Linkedin, Facebook, Twitter, Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 interface NavItem {
@@ -46,7 +46,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/90 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
+    <header className={`sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md ${isScrolled ? 'shadow-lg' : ''}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center group relative -translate-x-[40px]" onClick={() => onNavItemClick('home')}>
