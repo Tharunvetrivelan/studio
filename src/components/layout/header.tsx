@@ -46,7 +46,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md ${isScrolled ? 'shadow-lg' : ''}`}>
+    <header className={`sticky top-0 z-50 transition-all duration-300 bg-white/75 backdrop-blur-md ${isScrolled ? 'shadow-lg' : ''}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center group relative -translate-x-[40px]" onClick={() => onNavItemClick('home')}>
