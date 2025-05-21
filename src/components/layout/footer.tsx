@@ -2,7 +2,6 @@
 import type { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { Linkedin, Facebook, Twitter } from 'lucide-react';
 
 const Footer: FC = () => {
@@ -12,30 +11,19 @@ const Footer: FC = () => {
   return (
     <footer className="bg-gray-900 text-gray-300 py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-12">
           {/* Column 1: Logo & Description */}
-          <div className="flex flex-col items-center text-center">
-            <Link href="/" className="flex items-center justify-center mb-4">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <Link href="/" className="flex items-center justify-center lg:justify-start mb-4">
               <Image src={logoUrl} alt="Quantastic Logo" width={180} height={45} />
             </Link>
-            <p className="text-sm mb-4">
+            <p className="text-sm">
               Your fantastic app for talent navigation. We specialize in connecting talent with opportunities.
             </p>
-            <div className="flex space-x-4 justify-center">
-              <Link href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-primary transition-colors">
-                <Linkedin size={20} />
-              </Link>
-              <Link href="#" aria-label="Facebook" className="text-gray-400 hover:text-primary transition-colors">
-                <Facebook size={20} />
-              </Link>
-              <Link href="#" aria-label="Twitter" className="text-gray-400 hover:text-primary transition-colors">
-                <Twitter size={20} />
-              </Link>
-            </div>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="text-center">
+          <div className="text-center lg:text-left">
             <h5 className="text-lg font-semibold text-white mb-4">Quick Links</h5>
             <ul className="space-y-2">
               <li><Link href="#home" className="text-sm hover:text-primary transition-colors">Home</Link></li>
@@ -47,7 +35,7 @@ const Footer: FC = () => {
           </div>
 
           {/* Column 3: Our Services */}
-          <div className="text-center">
+          <div className="text-center lg:text-left">
             <h5 className="text-lg font-semibold text-white mb-4">Our Services</h5>
             <ul className="space-y-2">
               <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Specialized Tech Recruitment</Link></li>
@@ -55,6 +43,22 @@ const Footer: FC = () => {
               <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Contract Staffing</Link></li>
               <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Consulting Services</Link></li>
             </ul>
+          </div>
+
+          {/* Column 4: Social Media Links */}
+          <div className="text-center lg:text-left">
+            <h5 className="text-lg font-semibold text-white mb-4">Connect With Us</h5>
+            <div className="flex space-x-4 justify-center lg:justify-start">
+              <Link href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-primary transition-colors group">
+                <Linkedin size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
+              </Link>
+              <Link href="#" aria-label="Facebook" className="text-gray-400 hover:text-primary transition-colors group">
+                <Facebook size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
+              </Link>
+              <Link href="#" aria-label="Twitter" className="text-gray-400 hover:text-primary transition-colors group">
+                <Twitter size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
+              </Link>
+            </div>
           </div>
         </div>
 
