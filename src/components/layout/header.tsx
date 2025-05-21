@@ -77,7 +77,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-3 translate-x-10">
+          <div className="hidden md:flex items-center space-x-3">
             <Link href="#" aria-label="LinkedIn" className="text-foreground/70 group">
               <Linkedin size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
             </Link>
