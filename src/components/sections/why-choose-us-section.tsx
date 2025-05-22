@@ -1,6 +1,6 @@
 // src/components/sections/why-choose-us-section.tsx
 import type { FC, LegacyRef } from 'react';
-import { Briefcase, Award, Laptop } from 'lucide-react';
+import { Award, TrendingUp, ClipboardEdit, MessagesSquare } from 'lucide-react';
 import SectionWrapper from '@/components/common/section-wrapper';
 import SectionTitle from '@/components/common/section-title';
 import AdvantageCard from '@/components/common/advantage-card';
@@ -12,27 +12,32 @@ interface WhyChooseUsSectionProps {
 
 const advantages = [
   {
-    icon: <Briefcase />,
-    title: "Industry Expertise",
-    description: "Deep understanding of the tech landscape and its evolving demands, ensuring we find talent that's truly cutting-edge.",
-  },
-  {
     icon: <Award />,
-    title: "Proven Track Record",
-    description: "A history of successful placements and satisfied clients, demonstrating our ability to deliver results consistently.",
+    title: "Proven Industry Expertise",
+    description: "Leverage our deep understanding of the tech landscape and its evolving demands to ensure your projects are cutting-edge.",
   },
   {
-    icon: <Laptop />,
-    title: "Tailored Approach",
-    description: "Customized recruitment strategies designed to meet your unique business needs and company culture.",
+    icon: <TrendingUp />,
+    title: "Scalable & Cost-Effective Solutions",
+    description: "We provide solutions that grow with your business while maintaining cost-efficiency and maximizing your ROI.",
+  },
+  {
+    icon: <ClipboardEdit />,
+    title: "Customized Approach",
+    description: "Every project is unique. We tailor our strategies and services to meet your specific business needs and company culture.",
+  },
+  {
+    icon: <MessagesSquare />,
+    title: "Transparent Communication",
+    description: "Experience clear, consistent communication and dedicated support throughout every stage of our partnership.",
   },
 ];
 
 const WhyChooseUsSection: FC<WhyChooseUsSectionProps> = ({ id, ref }) => {
   return (
     <SectionWrapper id={id} ref={ref} className="bg-gray-900">
-      <SectionTitle title="Why Companies Choose Us" subtitle="Our Advantages" className="text-white" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <SectionTitle title="Why Choose Quantastic?" subtitle="Our Advantages" className="text-white" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {advantages.map((advantage, index) => (
           <AdvantageCard
             key={index}

@@ -38,10 +38,10 @@ const Footer: FC = () => {
           <div className="text-center lg:text-left">
             <h5 className="text-lg font-semibold text-white mb-4">Our Services</h5>
             <ul className="space-y-2">
-              <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Specialized Tech Recruitment</Link></li>
-              <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Executive Search</Link></li>
-              <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Contract Staffing</Link></li>
-              <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Consulting Services</Link></li>
+              <li><Link href="#services" className="text-sm hover:text-primary transition-colors">IT Services</Link></li>
+              <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Recruitment Services</Link></li>
+              <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Web Development</Link></li>
+              <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Mobile App Development</Link></li>
             </ul>
           </div>
 
