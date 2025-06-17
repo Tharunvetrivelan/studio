@@ -60,7 +60,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
             />
           </Link>
 
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-6"> {/* Increased space-x for overall group */}
             <nav className="flex items-center space-x-2">
               {navItems.map((item) => (
                 <Button
@@ -78,7 +78,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
               ))}
             </nav>
 
-            <div className="flex items-center space-x-3 ml-4">
+            <div className="flex items-center space-x-3"> {/* Social icons remain grouped */}
               <Link href="#" aria-label="Facebook" className="text-foreground/70 group">
                 <Facebook size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
               </Link>
