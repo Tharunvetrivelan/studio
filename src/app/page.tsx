@@ -8,9 +8,6 @@ import HeroSection from '@/components/sections/hero-section';
 import AboutUsSection from '@/components/sections/about-us-section';
 import ServicesSection from '@/components/sections/services-section';
 import WhyChooseUsSection from '@/components/sections/why-choose-us-section';
-import StatsSection from '@/components/sections/stats-section';
-import TestimonialsSection from '@/components/sections/testimonials-section';
-import ResumeEnhancerSection from '@/components/sections/resume-enhancer-section';
 import CtaSection from '@/components/sections/cta-section';
 
 export default function Home() {
@@ -21,9 +18,6 @@ export default function Home() {
     about: useRef<HTMLElement>(null),
     services: useRef<HTMLElement>(null),
     advantages: useRef<HTMLElement>(null), // Used by WhyChooseUsSection
-    stats: useRef<HTMLElement>(null),
-    testimonials: useRef<HTMLElement>(null),
-    'resume-enhancer': useRef<HTMLElement>(null),
   };
 
   const handleNavItemClick = (id: string) => {
@@ -50,14 +44,16 @@ export default function Home() {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    Object.values(sectionRefs).forEach(ref => {
+    const currentRefs = sectionRefs; // Capture current value
+
+    Object.values(currentRefs).forEach(ref => {
       if (ref.current) {
         observer.observe(ref.current);
       }
     });
 
     return () => {
-      Object.values(sectionRefs).forEach(ref => {
+      Object.values(currentRefs).forEach(ref => {
         if (ref.current) {
           observer.unobserve(ref.current);
         }
@@ -74,9 +70,6 @@ export default function Home() {
         <AboutUsSection id="about" ref={sectionRefs.about} />
         <ServicesSection id="services" ref={sectionRefs.services} />
         <WhyChooseUsSection id="advantages" ref={sectionRefs.advantages} />
-        <StatsSection id="stats" ref={sectionRefs.stats} />
-        <TestimonialsSection id="testimonials" ref={sectionRefs.testimonials} />
-        <ResumeEnhancerSection id="resume-enhancer" ref={sectionRefs['resume-enhancer']} />
         <CtaSection />
       </main>
       <Footer />

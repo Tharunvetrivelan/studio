@@ -18,8 +18,7 @@ const navItems: NavItem[] = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About Us' },
   { id: 'services', label: 'Services' },
-  { id: 'testimonials', label: 'Success Stories' },
-  { id: 'resume-enhancer', label: 'Resume Enhancer' },
+  { id: 'advantages', label: 'Why Choose Us' },
 ];
 
 interface HeaderProps {

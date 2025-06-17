@@ -29,8 +29,7 @@ const Footer: FC = () => {
               <li><Link href="#home" className="text-sm hover:text-primary transition-colors">Home</Link></li>
               <li><Link href="#about" className="text-sm hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="#services" className="text-sm hover:text-primary transition-colors">Services</Link></li>
-              <li><Link href="#testimonials" className="text-sm hover:text-primary transition-colors">Success Stories</Link></li>
-              <li><Link href="#resume-enhancer" className="text-sm hover:text-primary transition-colors">Resume Enhancer</Link></li>
+              <li><Link href="#advantages" className="text-sm hover:text-primary transition-colors">Why Choose Us</Link></li>
             </ul>
           </div>
 
