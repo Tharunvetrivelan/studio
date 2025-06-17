@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Linkedin, Facebook, Twitter, Menu } from 'lucide-react';
+import { Facebook, Twitter, Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 interface NavItem {
@@ -60,33 +60,32 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
             />
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-2">
-            {navItems.map((item) => (
-              <Button
-                key={item.id}
-                variant="ghost"
-                onClick={() => onNavItemClick(item.id)}
-                className={`font-medium transition-colors ${
-                  activeNavItem === item.id
-                    ? 'text-primary hover:text-primary/90'
-                    : 'text-foreground/70 hover:text-primary'
-                }`}
-              >
-                {item.label}
-              </Button>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center space-x-1">
+            <nav className="flex items-center space-x-2">
+              {navItems.map((item) => (
+                <Button
+                  key={item.id}
+                  variant="ghost"
+                  onClick={() => onNavItemClick(item.id)}
+                  className={`font-medium transition-colors ${
+                    activeNavItem === item.id
+                      ? 'text-primary hover:text-primary/90'
+                      : 'text-foreground/70 hover:text-primary'
+                  }`}
+                >
+                  {item.label}
+                </Button>
+              ))}
+            </nav>
 
-          <div className="hidden md:flex items-center space-x-3">
-            <Link href="#" aria-label="LinkedIn" className="text-foreground/70 group">
-              <Linkedin size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
-            </Link>
-            <Link href="#" aria-label="Facebook" className="text-foreground/70 group">
-              <Facebook size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
-            </Link>
-            <Link href="#" aria-label="Twitter" className="text-foreground/70 group">
-              <Twitter size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
-            </Link>
+            <div className="flex items-center space-x-3 ml-4">
+              <Link href="#" aria-label="Facebook" className="text-foreground/70 group">
+                <Facebook size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
+              </Link>
+              <Link href="#" aria-label="Twitter" className="text-foreground/70 group">
+                <Twitter size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
+              </Link>
+            </div>
           </div>
 
           <div className="md:hidden">
@@ -124,9 +123,6 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
                     </Button>
                   ))}
                   <div className="flex items-center space-x-4 pt-6 border-t">
-                    <Link href="#" aria-label="LinkedIn" className="text-foreground/70 group">
-                      <Linkedin size={24} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
-                    </Link>
                     <Link href="#" aria-label="Facebook" className="text-foreground/70 group">
                       <Facebook size={24} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
                     </Link>
