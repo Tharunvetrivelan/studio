@@ -79,7 +79,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
             </nav>
 
             <div className="flex items-center space-x-3">
-              <Link href="#" aria-label="Facebook" className="text-foreground/70 group">
+              <Link href="https://www.facebook.com/profile.php?id=61577022924826" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-foreground/70 group">
                 <Facebook size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
               </Link>
               <Link href="https://x.com/QuantasticT" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-foreground/70 group">
@@ -123,7 +123,7 @@ const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
                     </Button>
                   ))}
                   <div className="flex items-center space-x-4 pt-6 border-t">
-                    <Link href="#" aria-label="Facebook" className="text-foreground/70 group">
+                    <Link href="https://www.facebook.com/profile.php?id=61577022924826" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-foreground/70 group">
                       <Facebook size={24} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
                     </Link>
                     <Link href="https://x.com/QuantasticT" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-foreground/70 group">

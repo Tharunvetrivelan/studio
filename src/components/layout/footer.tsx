@@ -49,7 +49,7 @@ const Footer: FC = () => {
           <div className="text-center lg:text-left">
             <h5 className="text-lg font-semibold text-white mb-4">Connect With Us</h5>
             <div className="flex space-x-4 justify-center lg:justify-start">
-              <Link href="#" aria-label="Facebook" className="text-gray-400 hover:text-primary transition-colors group">
+              <Link href="https://www.facebook.com/profile.php?id=61577022924826" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-gray-400 hover:text-primary transition-colors group">
                 <Facebook size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
               </Link>
               <Link href="https://x.com/QuantasticT" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-gray-400 hover:text-primary transition-colors group">
