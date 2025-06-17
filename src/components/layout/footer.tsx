@@ -52,7 +52,7 @@ const Footer: FC = () => {
               <Link href="#" aria-label="Facebook" className="text-gray-400 hover:text-primary transition-colors group">
                 <Facebook size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
               </Link>
-              <Link href="#" aria-label="Twitter" className="text-gray-400 hover:text-primary transition-colors group">
+              <Link href="https://x.com/QuantasticT" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-gray-400 hover:text-primary transition-colors group">
                 <Twitter size={20} className="group-hover:text-accent group-hover:scale-125 transition-all duration-200 ease-in-out" />
               </Link>
             </div>
