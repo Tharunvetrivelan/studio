@@ -15,10 +15,13 @@ const CtaSection: FC = () => {
           Contact us today to get started! Whether you're looking for IT solutions, recruitment expertise, or cutting-edge app development, Quantastic Technologies is ready to help you achieve your goals.
         </p>
         <Button 
+          asChild
           size="lg" 
           className="bg-background text-primary hover:bg-background/90 hover:text-primary/90 py-4 px-8 text-lg font-semibold shadow-xl transform transition-transform hover:scale-105"
         >
-          Contact Us Today <ArrowRight size={22} className="ml-2" />
+          <a href="mailto:quantastictechnologies@gmail.com">
+            Contact Us Today <ArrowRight size={22} className="ml-2" />
+          </a>
         </Button>
       </div>
     </SectionWrapper>

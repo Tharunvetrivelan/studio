@@ -49,8 +49,10 @@ const ServicesSection: FC<ServicesSectionProps> = ({ id, ref }) => {
         ))}
       </div>
       <div className="text-center">
-        <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transform transition-transform hover:scale-105">
-          Discuss Your Project <ArrowRight size={20} className="ml-2" />
+        <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transform transition-transform hover:scale-105">
+          <a href="mailto:quantastictechnologies@gmail.com">
+            Discuss Your Project <ArrowRight size={20} className="ml-2" />
+          </a>
         </Button>
       </div>
     </SectionWrapper>

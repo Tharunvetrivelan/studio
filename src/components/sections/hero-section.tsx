@@ -27,8 +27,10 @@ const HeroSection: FC<HeroSectionProps> = ({ id, ref }) => {
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105">
             Explore Our Services <ArrowRight size={20} className="ml-2" />
           </Button>
-          <Button variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105">
-            Contact Us <ArrowRight size={20} className="ml-2" />
+          <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105">
+            <a href="mailto:quantastictechnologies@gmail.com">
+              Contact Us <ArrowRight size={20} className="ml-2" />
+            </a>
           </Button>
         </div>
       </div>
