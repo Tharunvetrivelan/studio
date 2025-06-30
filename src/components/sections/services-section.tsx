@@ -4,7 +4,8 @@ import { HardHat, UserCheck, Globe, Smartphone, ArrowRight } from 'lucide-react'
 import SectionWrapper from '@/components/common/section-wrapper';
 import SectionTitle from '@/components/common/section-title';
 import ServiceCard from '@/components/common/service-card';
-import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
 
 interface ServicesSectionProps {
   id: string;
@@ -49,11 +50,15 @@ const ServicesSection: FC<ServicesSectionProps> = ({ id, ref }) => {
         ))}
       </div>
       <div className="text-center">
-        <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transform transition-transform hover:scale-105">
-          <a href="mailto:quantastictechnologies@gmail.com">
-            Discuss Your Project <ArrowRight size={20} className="ml-2" />
-          </a>
-        </Button>
+        <a 
+          href="mailto:quantastictechnologies@gmail.com"
+          className={cn(
+            buttonVariants({ size: 'lg' }),
+            "bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transform transition-transform hover:scale-105"
+          )}
+        >
+          Discuss Your Project <ArrowRight size={20} className="ml-2" />
+        </a>
       </div>
     </SectionWrapper>
   );

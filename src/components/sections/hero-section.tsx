@@ -3,6 +3,8 @@ import type { FC, LegacyRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import SectionWrapper from '@/components/common/section-wrapper';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
 
 interface HeroSectionProps {
   id: string;
@@ -27,11 +29,15 @@ const HeroSection: FC<HeroSectionProps> = ({ id, ref }) => {
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105">
             Explore Our Services <ArrowRight size={20} className="ml-2" />
           </Button>
-          <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105">
-            <a href="mailto:quantastictechnologies@gmail.com">
-              Contact Us <ArrowRight size={20} className="ml-2" />
-            </a>
-          </Button>
+          <a
+            href="mailto:quantastictechnologies@gmail.com"
+            className={cn(
+              buttonVariants({ variant: 'outline', size: 'lg' }),
+              "border-accent text-accent hover:bg-accent hover:text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105"
+            )}
+          >
+            Contact Us <ArrowRight size={20} className="ml-2" />
+          </a>
         </div>
       </div>
     </SectionWrapper>
