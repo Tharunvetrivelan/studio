@@ -26,4 +26,10 @@ const nextConfig: NextConfig = {
   },
 };
 
+// Only add basePath in production (GitHub Pages)
+if (process.env.NODE_ENV === 'production') {
+  nextConfig.basePath = '/studio'
+  nextConfig.assetPrefix = '/studio'
+}
+
 export default nextConfig;
