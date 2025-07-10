@@ -3,9 +3,13 @@ import type { FC } from 'react';
 import { ArrowRight } from 'lucide-react';
 import SectionWrapper from '@/components/common/section-wrapper';
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 
 const CtaSection: FC = () => {
+  const handleContactClick = () => {
+    window.open('mailto:quantastictechnologies@gmail.com');
+  };
+
   return (
     <SectionWrapper id="cta" className="bg-gradient-to-r from-accent to-primary text-accent-foreground">
       <div className="text-center max-w-3xl mx-auto">
@@ -15,15 +19,13 @@ const CtaSection: FC = () => {
         <p className="text-lg md:text-xl text-primary-foreground/90 mb-10">
           Contact us today to get started! Whether you're looking for IT solutions, recruitment expertise, or cutting-edge app development, Quantastic Technologies is ready to help you achieve your goals.
         </p>
-        <a
-          href="mailto:quantastictechnologies@gmail.com"
-          className={cn(
-            buttonVariants({ size: 'lg' }),
-            "bg-background text-primary hover:bg-background/90 hover:text-primary/90 py-4 px-8 text-lg font-semibold shadow-xl transform transition-transform hover:scale-105"
-          )}
+        <Button
+          onClick={handleContactClick}
+          size="lg"
+          className="bg-background text-primary hover:bg-background/90 hover:text-primary/90 py-4 px-8 text-lg font-semibold shadow-xl transform transition-transform hover:scale-105"
         >
           Contact Us Today <ArrowRight size={22} className="ml-2" />
-        </a>
+        </Button>
       </div>
     </SectionWrapper>
   );

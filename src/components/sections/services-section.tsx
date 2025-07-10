@@ -5,7 +5,7 @@ import SectionWrapper from '@/components/common/section-wrapper';
 import SectionTitle from '@/components/common/section-title';
 import ServiceCard from '@/components/common/service-card';
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 
 interface ServicesSectionProps {
   id: string;
@@ -36,6 +36,10 @@ const services = [
 ];
 
 const ServicesSection: FC<ServicesSectionProps> = ({ id, ref }) => {
+  const handleContactClick = () => {
+    window.open('mailto:quantastictechnologies@gmail.com');
+  };
+
   return (
     <SectionWrapper id={id} ref={ref} className="bg-secondary">
       <SectionTitle title="Our Comprehensive Services" subtitle="What We Offer" />
@@ -50,15 +54,13 @@ const ServicesSection: FC<ServicesSectionProps> = ({ id, ref }) => {
         ))}
       </div>
       <div className="text-center">
-        <a 
-          href="mailto:quantastictechnologies@gmail.com"
-          className={cn(
-            buttonVariants({ size: 'lg' }),
-            "bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transform transition-transform hover:scale-105"
-          )}
+        <Button
+          onClick={handleContactClick}
+          size="lg"
+          className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transform transition-transform hover:scale-105"
         >
           Discuss Your Project <ArrowRight size={20} className="ml-2" />
-        </a>
+        </Button>
       </div>
     </SectionWrapper>
   );

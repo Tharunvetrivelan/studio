@@ -12,6 +12,10 @@ interface HeroSectionProps {
 }
 
 const HeroSection: FC<HeroSectionProps> = ({ id, ref }) => {
+  const handleContactClick = () => {
+    window.open('mailto:quantastictechnologies@gmail.com');
+  };
+
   return (
     <SectionWrapper id={id} ref={ref} className="bg-gradient-to-br from-gray-900 via-primary/80 to-gray-900 text-white relative overflow-hidden min-h-[calc(100vh-5rem)] flex items-center">
       {/* Abstract Shapes */}
@@ -26,18 +30,17 @@ const HeroSection: FC<HeroSectionProps> = ({ id, ref }) => {
           At Quantastic Technologies, we specialize in delivering comprehensive IT services, recruitment solutions, and end-to-end web and mobile application development tailored to meet your business goals.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105">
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105" onClick={handleContactClick}>
             Explore Our Services <ArrowRight size={20} className="ml-2" />
           </Button>
-          <a
-            href="mailto:quantastictechnologies@gmail.com"
-            className={cn(
-              buttonVariants({ variant: 'outline', size: 'lg' }),
-              "border-accent text-accent hover:bg-accent hover:text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105"
-            )}
+          <Button
+            onClick={handleContactClick}
+            variant="outline"
+            size="lg"
+            className="border-accent text-accent hover:bg-accent hover:text-accent-foreground w-full sm:w-auto shadow-lg transform transition-transform hover:scale-105"
           >
             Contact Us <ArrowRight size={20} className="ml-2" />
-          </a>
+          </Button>
         </div>
       </div>
     </SectionWrapper>
