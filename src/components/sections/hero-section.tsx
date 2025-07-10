@@ -13,7 +13,7 @@ interface HeroSectionProps {
 
 const HeroSection: FC<HeroSectionProps> = ({ id, ref }) => {
   const handleContactClick = () => {
-    window.open('mailto:quantastictechnologies@gmail.com');
+    window.open('https://mail.google.com/mail/?view=cm&to=quantastictechnologies@gmail.com', '_blank');
   };
 
   return (

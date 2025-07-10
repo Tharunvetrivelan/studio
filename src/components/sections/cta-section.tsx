@@ -7,7 +7,7 @@ import { Button, buttonVariants } from '@/components/ui/button';
 
 const CtaSection: FC = () => {
   const handleContactClick = () => {
-    window.open('mailto:quantastictechnologies@gmail.com');
+    window.open('https://mail.google.com/mail/?view=cm&to=quantastictechnologies@gmail.com', '_blank');
   };
 
   return (

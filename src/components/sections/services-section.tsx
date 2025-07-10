@@ -21,7 +21,7 @@ const services = [
   {
     icon: <UserCheck />,
     title: "Recruitment Services",
-    description: "From sourcing niche tech talent to managing bulk hiring drives, we offer end-to-end recruitment solutions. We connect companies with top-tier professionals in IT, non-IT, and emerging technology domains.",
+    description: "From sourcing niche tech talent to managing bulk hiring drives, we offer end-to-end recruitment solutions. We connect companies with top-tier professionals in IT, non-IT, and emerging technology domains through strategic hiring, campus recruitment, and customized staffing solutions.",
   },
   {
     icon: <Globe />,
@@ -37,7 +37,7 @@ const services = [
 
 const ServicesSection: FC<ServicesSectionProps> = ({ id, ref }) => {
   const handleContactClick = () => {
-    window.open('mailto:quantastictechnologies@gmail.com');
+    window.open('https://mail.google.com/mail/?view=cm&to=quantastictechnologies@gmail.com', '_blank');
   };
 
   return (
