@@ -29,7 +29,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const logoUrl = "https://cdn.discordapp.com/attachments/1168222654570975284/1374410831105888376/cover.png?ex=682df355&is=682ca1d5&hm=27fb8b0e9d1b1a90e05259fba39c094f673034b840a1ae26bfb2bc2ae377d0c0&";
+  const logoUrl = "/quantastic-logo.png";
 
   useEffect(() => {
     const handleScroll = () => {
