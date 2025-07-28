@@ -6,7 +6,8 @@ import { Facebook, Twitter } from 'lucide-react';
 
 const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
-  const logoUrl = "/quantastic-logo.png";
+  //const logoUrl = "/quantastic-logo.png";
+  const logoUrl = `${process.env.NODE_ENV === 'production' ? '/studio' : ''}/quantastic-logo.png`;
 
   return (
     <footer className="bg-gray-900 text-gray-300 py-16">
