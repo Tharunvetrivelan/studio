@@ -29,7 +29,8 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ activeNavItem, onNavItemClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const logoUrl = "/quantastic-logo.png";
+  //const logoUrl = "/quantastic-logo.png";
+  const logoUrl = `${process.env.NODE_ENV === 'production' ? '/studio' : ''}/quantastic-logo.png`;
 
   useEffect(() => {
     const handleScroll = () => {
